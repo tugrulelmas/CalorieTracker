@@ -23,9 +23,9 @@ namespace CalorieTracker.Handlers.FoodEntries {
             var query = context.FoodEntries.Where(foodEntrySpecification.ToExpression()).GroupBy(f => f.Date)
                 .Select(f => new TotalCaloriesByDay { Date = f.Key, Calorie = f.Sum(x => x.Calorie) });
             
-            var totalCount = await query.LongCountAsync();
+            var totalCount = await query.LongCountAsync(cancellationToken);
 
-            var calories = await query.OrderByDescending(f => f.Date).Skip((request.Page - 1) * request.PageSize).Take(request.PageSize).ToListAsync();
+            var calories = await query.OrderByDescending(f => f.Date).Skip((request.Page - 1) * request.PageSize).Take(request.PageSize).ToListAsync(cancellationToken);
 
             return new GetTotalCaloriesByDayResponse {
                 TotalCount = totalCount,

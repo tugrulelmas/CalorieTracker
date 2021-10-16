@@ -16,7 +16,7 @@ namespace CalorieTracker.Handlers.Users {
         }
 
         public async Task<IEnumerable<UserDto>> Handle(GetUsersRequest request, CancellationToken cancellationToken) {
-            var result = await context.Users.Select(u => new UserDto { Id = u.Id, Email = u.Email, Name = u.Name }).AsNoTracking().ToListAsync();
+            var result = await context.Users.Select(u => new UserDto { Id = u.Id, Email = u.Email, Name = u.Name }).AsNoTracking().ToListAsync(cancellationToken);
             return result;
         }
     }

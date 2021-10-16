@@ -15,6 +15,7 @@ namespace CalorieTracker.Handlers.FoodEntries {
         public DeleteFoodEntryHandler(CalorieTrackerContext context) {
             this.context = context;
         }
+
         public async Task<Unit> Handle(DeleteFoodEntryRequest request, CancellationToken cancellationToken) {
             var foodEntry = await context.FoodEntries.Where(f => f.Id == request.FoodEntryId && f.User.Id == request.UserId).FirstOrDefaultAsync(cancellationToken);
 

@@ -7,7 +7,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CalorieTracker.Handlers.Users {
+namespace CalorieTracker.Handlers.FoodEntries {
     public class AddFoodEntryHandler : IRequestHandler<AddFoodEntryRequest, FoodEntryBase> {
         private readonly CalorieTrackerContext context;
 
@@ -16,7 +16,7 @@ namespace CalorieTracker.Handlers.Users {
         }
 
         public async Task<FoodEntryBase> Handle(AddFoodEntryRequest request, CancellationToken cancellationToken) {
-            var user = await context.Users.FirstOrDefaultAsync(u => u.Id == request.UserId);
+            var user = await context.Users.FirstOrDefaultAsync(u => u.Id == request.UserId, cancellationToken);
 
             if (user == null)
                 throw new CustomException("Invalid user id");
@@ -29,9 +29,9 @@ namespace CalorieTracker.Handlers.Users {
                 User = user
             };
 
-            await context.FoodEntries.AddAsync(foodEntry);
+            await context.FoodEntries.AddAsync(foodEntry, cancellationToken);
 
-            await context.SaveChangesAsync();
+            await context.SaveChangesAsync(cancellationToken);
 
             return new FoodEntryBase {
                 Id = foodEntry.Id,

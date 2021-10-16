@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace CalorieTracker.Handlers.Users {
+namespace CalorieTracker.Handlers.FoodEntries {
     public class FilterFoodEntriesHandler : IRequestHandler<FilterFoodEntriesRequest, FilterFoodEntriesResponse> {
         private readonly CalorieTrackerContext context;
 
@@ -23,10 +23,10 @@ namespace CalorieTracker.Handlers.Users {
 
             var query = context.FoodEntries.Where(foodEntrySpecification.ToExpression());
 
-            var totalCount = await query.LongCountAsync();
+            var totalCount = await query.LongCountAsync(cancellationToken);
 
             var foodEntries = await query.OrderByDescending(f => f.Date).ThenBy(f=>f.User.Name).Skip((request.Page - 1) * request.PageSize).Take(request.PageSize)
-                .Include(f => f.User).AsNoTracking().ToListAsync();
+                .Include(f => f.User).AsNoTracking().ToListAsync(cancellationToken);
 
             if (foodEntries == null) {
                 return new FilterFoodEntriesResponse {

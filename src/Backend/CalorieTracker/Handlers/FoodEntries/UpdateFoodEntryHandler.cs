@@ -15,12 +15,12 @@ namespace CalorieTracker.Handlers.FoodEntries {
         }
 
         public async Task<Unit> Handle(UpdateFoodEntryRequest request, CancellationToken cancellationToken) {
-            var user = await context.Users.FirstOrDefaultAsync(u => u.Id == request.UserId);
+            var user = await context.Users.FirstOrDefaultAsync(u => u.Id == request.UserId, cancellationToken);
 
             if (user is null)
                 throw new CustomException("Invalid user id");
 
-            var foodEntry = await context.FoodEntries.FirstOrDefaultAsync(u => u.Id == request.FoodEntryId);
+            var foodEntry = await context.FoodEntries.FirstOrDefaultAsync(u => u.Id == request.FoodEntryId, cancellationToken);
 
             if (foodEntry is null)
                 throw new CustomException("Invalid id");
@@ -30,7 +30,7 @@ namespace CalorieTracker.Handlers.FoodEntries {
             foodEntry.FoodName = request.FoodName;
             foodEntry.User = user;
 
-            await context.SaveChangesAsync();
+            await context.SaveChangesAsync(cancellationToken);
 
             return Unit.Value;
         }
