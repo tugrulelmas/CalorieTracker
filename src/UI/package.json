@@ -1,0 +1,28 @@
+{
+  "name": "calorie-tracker",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@sweetalert/with-react": "^0.1.1",
+    "moment": "^2.29.1",
+    "next": "11.1.2",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "rxjs": "^7.4.0",
+    "sweetalert": "^2.1.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.3.4",
+    "autoprefixer": "^10.3.7",
+    "eslint": "8.0.0",
+    "eslint-config-next": "11.1.2",
+    "postcss": "^8.3.9",
+    "tailwindcss": "^2.2.16"
+  }
+}
