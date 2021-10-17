@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "0eb3e838-451a-4aac-8b57-f73e6ad85b0f",
+		"name": "CT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@admin.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/v1/tokens",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"tokens"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Food Entry",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOGE3ZDU0MC04MGQzLTQ3MGUtYmY4YS1kOGMxNjJkOTk3NjciLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJuYmYiOjE2MzQ0MzA5ODUsImV4cCI6MTYzNDQzMjc4NSwiaWF0IjoxNjM0NDMwOTg1fQ.phpt6ATsgS5r4Rau_Gd39zLmB2PLpSHuR57mNvJbWfE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"calorie\": 14,\r\n    \"foodName\": \"Orange\",\r\n    \"date\": \"2021-10-11T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/v1/users/b8a7d540-80d3-470e-bf8a-d8c162d99767/foods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"users",
+						"b8a7d540-80d3-470e-bf8a-d8c162d99767",
+						"foods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Food Entry Copy",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOGE3ZDU0MC04MGQzLTQ3MGUtYmY4YS1kOGMxNjJkOTk3NjciLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJuYmYiOjE2MzQ0MzA5ODUsImV4cCI6MTYzNDQzMjc4NSwiaWF0IjoxNjM0NDMwOTg1fQ.phpt6ATsgS5r4Rau_Gd39zLmB2PLpSHuR57mNvJbWfE",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"calorie\": 14,\r\n    \"foodName\": \"Egg\",\r\n    \"date\": \"2021-10-17T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/v1/users/b8a7d540-80d3-470e-bf8a-d8c162d99767/foods/8e29aba2-0350-4808-a498-c898e623639f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"users",
+						"b8a7d540-80d3-470e-bf8a-d8c162d99767",
+						"foods",
+						"8e29aba2-0350-4808-a498-c898e623639f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Food Entry",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOGE3ZDU0MC04MGQzLTQ3MGUtYmY4YS1kOGMxNjJkOTk3NjciLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJuYmYiOjE2MzQ0MzA5ODUsImV4cCI6MTYzNDQzMjc4NSwiaWF0IjoxNjM0NDMwOTg1fQ.phpt6ATsgS5r4Rau_Gd39zLmB2PLpSHuR57mNvJbWfE",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/users/b8a7d540-80d3-470e-bf8a-d8c162d99767/foods/8e29aba2-0350-4808-a498-c898e623639f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"users",
+						"b8a7d540-80d3-470e-bf8a-d8c162d99767",
+						"foods",
+						"8e29aba2-0350-4808-a498-c898e623639f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add My Food Entry",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"calorie\": 14,\r\n    \"foodName\": \"Orange\",\r\n    \"date\": \"2021-10-11T00:00:00\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/v1/users/me/foods",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"users",
+						"me",
+						"foods"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Food Entries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOGE3ZDU0MC04MGQzLTQ3MGUtYmY4YS1kOGMxNjJkOTk3NjciLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJuYmYiOjE2MzQyMjY2ODIsImV4cCI6MTYzNDIyODQ4MiwiaWF0IjoxNjM0MjI2NjgyfQ.k7p-b7wiOtOxXfldh63hxIRzpNPCDxpwApseo6G7V6g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/users/me/foods?to=2021-10-14&from=2021-10-02&pageSize=10&page=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"users",
+						"me",
+						"foods"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "to",
+							"value": "2021-10-14"
+						},
+						{
+							"key": "from",
+							"value": "2021-10-02"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get My Calories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOGE3ZDU0MC04MGQzLTQ3MGUtYmY4YS1kOGMxNjJkOTk3NjciLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJuYmYiOjE2MzQyMjY2ODIsImV4cCI6MTYzNDIyODQ4MiwiaWF0IjoxNjM0MjI2NjgyfQ.k7p-b7wiOtOxXfldh63hxIRzpNPCDxpwApseo6G7V6g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/users/me/calories?page=1&pageSize=10&from=2020-10-09&to=2021-10-13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"users",
+						"me",
+						"calories"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "from",
+							"value": "2020-10-09"
+						},
+						{
+							"key": "to",
+							"value": "2021-10-13"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Food Entries Report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOGE3ZDU0MC04MGQzLTQ3MGUtYmY4YS1kOGMxNjJkOTk3NjciLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJuYmYiOjE2MzQyMjcwNzgsImV4cCI6MTYzNDIyODg3OCwiaWF0IjoxNjM0MjI3MDc4fQ.yIOnIRUYI3zEm5LiCY74-wE6Zbt9Ti8AXTmOg7Yby0k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/users/foods/report?page=1&pageSize=10&to=2021-10-14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"users",
+						"foods",
+						"report"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						},
+						{
+							"key": "to",
+							"value": "2021-10-14"
+						},
+						{
+							"key": null,
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Food Entries",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOGE3ZDU0MC04MGQzLTQ3MGUtYmY4YS1kOGMxNjJkOTk3NjciLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJuYmYiOjE2MzQyMjY2ODIsImV4cCI6MTYzNDIyODQ4MiwiaWF0IjoxNjM0MjI2NjgyfQ.k7p-b7wiOtOxXfldh63hxIRzpNPCDxpwApseo6G7V6g",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/users/foods?to=2021-10-14&from=2021-10-02&page=1&pageSize=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"users",
+						"foods"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "to",
+							"value": "2021-10-14"
+						},
+						{
+							"key": "from",
+							"value": "2021-10-02"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJiOGE3ZDU0MC04MGQzLTQ3MGUtYmY4YS1kOGMxNjJkOTk3NjciLCJlbWFpbCI6ImFkbWluQGFkbWluLmNvbSIsIm5hbWUiOiJBZG1pbiIsInJvbGVzIjoiYWRtaW4iLCJuYmYiOjE2MzQyODQ3NjAsImV4cCI6MTYzNDI4NjU2MCwiaWF0IjoxNjM0Mjg0NzYwfQ.DYI8gA3RyWYDhntIn-BOA8GxgbZgj1z2LCmWgQEIBYo",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/v1/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v1",
+						"users"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
