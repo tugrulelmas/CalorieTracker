@@ -3,11 +3,12 @@ import DateFilter from '../../components/date-filter';
 import { foodEntryService } from '../../services/food-entry-service';
 import CalorieList from './calorie-list';
 import { alertService } from '../../services/alert-service';
+import moment from 'moment';
 
 export default function CaloriePage() {
     const [calorieResult, setCalorieResult] = useState({});
     const [loading, setLoading] = useState(false);
-    const [filter, setFilter] = useState({ page: 1, pageSize: 10, from: '', to: '' });
+    const [filter, setFilter] = useState({ page: 1, pageSize: 10, from: moment(new Date()).format('yyyy-MM-DD'), to: moment(new Date()).format('yyyy-MM-DD') });
 
     useEffect(() => {
         list(filter.page, filter.pageSize, filter.from, filter.to);

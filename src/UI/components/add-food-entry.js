@@ -28,7 +28,16 @@ export default function AddFoodEntry({ isOpen, close, isAdmin, selectedFoodEntry
         setError({ ...error, [e.target.name]: !e.target.value })
     }
 
-    const checkValues = () => {
+    const checked = (e) => {
+        setFoodEntry({ ...foodEntry, initial: false, [e.target.name]: e.target.checked });
+    }
+
+    const userChanged = (e) => {
+        setFoodEntry({ ...foodEntry, initial: false, user: { id: e.target.value } });
+        setError({ ...error, userId: !e.target.value })
+    }
+
+    const isInvalid = () => {
         const formError = {
             date: !foodEntry.date,
             foodName: !foodEntry.foodName,
@@ -43,7 +52,7 @@ export default function AddFoodEntry({ isOpen, close, isAdmin, selectedFoodEntry
     const saveFoodEntry = async (e) => {
         e.preventDefault();
 
-        if (!checkValues()) {
+        if (isInvalid()) {
             return;
         }
 
@@ -60,7 +69,7 @@ export default function AddFoodEntry({ isOpen, close, isAdmin, selectedFoodEntry
             return;
 
         setRequest({ loading: false, success: true });
-        setFoodEntry({ ...foodEntry, initial: true, foodName: '', calorie: '' });
+        setFoodEntry({ ...foodEntry, initial: true, foodName: '', calorie: '', cheatMeal: false });
     }
 
     const addFoodEntry = async () => {
@@ -124,8 +133,8 @@ export default function AddFoodEntry({ isOpen, close, isAdmin, selectedFoodEntry
 
                             {isAdmin && foodEntry.user && <label className="block mt-4 text-sm">
                                 <span className="text-gray-700">User</span>
-                                <select name="userId" className="block w-full mt-1 text-sm form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple"
-                                    value={foodEntry.user.id} onChange={valueChanged}>
+                                <select name="user" className="block w-full mt-1 text-sm form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple"
+                                    value={foodEntry.user.id} onChange={userChanged}>
                                     <option value="">Select a user</option>
                                     {users.map(u => <option value={u.id} key={u.id}>{u.name}</option>)}
                                 </select>
@@ -142,7 +151,7 @@ export default function AddFoodEntry({ isOpen, close, isAdmin, selectedFoodEntry
                             <div className="flex mt-4 text-sm">
                                 <label className="flex items-center">
                                     <input type="checkbox" name="cheatMeal" className="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple"
-                                        checked={foodEntry.cheatMeal} onChange={valueChanged} />
+                                        checked={foodEntry.cheatMeal} onChange={checked} />
                                     <span className="ml-2">
                                         Cheat meal?
                                     </span>

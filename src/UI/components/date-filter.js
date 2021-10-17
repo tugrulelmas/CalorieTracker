@@ -7,7 +7,7 @@ export default function DateFilter({ onList, loading }) {
 
     useEffect(() => {
         onList(dates);
-    }, []);
+    }, [dates]);
 
     const dateChanged = (e) => {
         setDates({ ...dates, [e.target.name]: e.target.value });
